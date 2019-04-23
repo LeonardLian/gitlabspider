@@ -5,13 +5,16 @@ import re
 import datetime
 import time
 import pytz
-import pandas as pd
+from collections import deque
 import numpy as np
+import pandas as pd
+
 
 def openJsonFile(filePath):
     file_info = open(filePath, "rb")
     info_data = json.load(file_info)
     return info_data
+
 
 # 将时间整理为数值形式
 def utc_to_local(utc_time_str, utc_format='%Y-%m-%dT%H:%M:%SZ'):
@@ -21,6 +24,8 @@ def utc_to_local(utc_time_str, utc_format='%Y-%m-%dT%H:%M:%SZ'):
     local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
     time_str = local_dt.strftime(local_format)
     return int(time.mktime(time.strptime(time_str, local_format)))
+
+
 
 # 将构建结果和链接  与  commit各项信息合并
 def commits_info_merge(filePath1,filePath2,filePath3):
@@ -49,7 +54,16 @@ def commits_info_merge(filePath1,filePath2,filePath3):
                     info_item["commit_description"] = info_item["commit_description"][0]
                 else:
                     info_item["commit_description"] =""
-                info_item["commit_time"] = str(utc_to_local(info_item["commit_time"][0]))
+
+                info_time = info_item["commit_time"][0]
+                local_tz = pytz.timezone('Asia/Chongqing')
+                utc_dt = datetime.datetime.strptime(info_time, '%Y-%m-%dT%H:%M:%SZ')
+                local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
+                info_item["time"] = local_dt.hour
+                info_item["month_day"] = local_dt.day
+                info_item["weekday"] = local_dt.weekday()
+
+                info_item["commit_time"] = str(utc_to_local(info_time))
 
                 commit_info_merge.append(info_item)
                 break
@@ -58,20 +72,54 @@ def commits_info_merge(filePath1,filePath2,filePath3):
           json_file.write(json.dumps(sorted(commit_info_merge, key=lambda x: x['commit_time']), indent=4))
 
 
-
 # 获取每个contributer提交的总次数，制成新文件
-def get_contributer_info(filePath4,filePath5):
-    info_data = openJsonFile(filePath4)
-    final_data = [{"author_name":"","auther_commit_total":"0"}]
+def get_contributer_info(file_path1, file_path2):
+    info_data = openJsonFile(file_path1)
+    final_data = [{"author_name": "", "auther_commit_total": "1",
+                 "build_total": 0, "build_success": 0, "build_fail": 0, "committer_recent": []}]
     p1 = re.compile('\d+')
     flag = 0
-    newauthor = {"author_name":"","auther_commit_total":"1"}
+    newauthor = {"author_name": "", "auther_commit_total": "1",
+                 "build_total": 0, "build_success": 0, "build_fail": 0, "committer_recent": []}
 
     for info_data_item in info_data:
+
         contributer = str(info_data_item["author_name"])
+        build_result=str(info_data_item["build_result"])
+        commit_time=int(info_data_item["commit_time"])
+
         for final_contributer in final_data:
             if contributer == str(final_contributer["author_name"]):
                 final_contributer["auther_commit_total"] = str(int(re.search(p1, final_contributer["auther_commit_total"]).group()) + 1).decode('utf-8')
+                if build_result != "":
+                    final_contributer["build_total"] += 1
+                    if build_result == "Commit: failed":
+                        final_contributer["build_fail"] += 1
+                        queue = deque(final_contributer["committer_recent"], maxlen=5)
+                        queue.append("fail")
+                        length = min(len(final_contributer["committer_recent"])+1, 5)
+
+                        final_contributer["committer_recent"]=[]
+                        i = 0
+                        while i < length:
+                            if queue.popleft():
+                                final_contributer["committer_recent"].append(queue.popleft())
+                            i += 1
+
+                    elif build_result == "Commit: passed":
+                        final_contributer["build_success"] += 1
+                        queue = deque(final_contributer["committer_recent"], maxlen=5)
+                        queue.append("success")
+                        length = min(len(final_contributer["committer_recent"]) + 1, 5)
+
+                        final_contributer["committer_recent"] = []
+                        i = 0
+                        while i < length:
+                            if queue.popleft():
+                                final_contributer["committer_recent"].append(queue.popleft())
+                            i += 1
+                    else:
+                        pass
                 flag = 0
                 break
             else:
@@ -79,10 +127,13 @@ def get_contributer_info(filePath4,filePath5):
         if flag == 1:
             newauthor["author_name"] = str(info_data_item["author_name"]).decode('utf-8')
             final_data.append(newauthor)
-            newauthor = {"author_name": "", "auther_commit_total": "1"}
+            print newauthor
+            newauthor = {"author_name": "", "auther_commit_total": "1",
+                 "build_total": 0, "build_success": 0, "build_fail": 0, "committer_recent": []}
 
-    with open(filePath5, 'w') as json_file:
+    with open(file_path2, 'w') as json_file:
         json_file.write(json.dumps(final_data, indent=4))
+
 
 # 把contributer提交的总次数与commit的信息合并
 def merge_contributer_commit(filePath6,filePath7,filePath8):
@@ -102,7 +153,6 @@ def merge_contributer_commit(filePath6,filePath7,filePath8):
 
     with open(filePath8, 'w') as json_file:
         json_file.write(json.dumps(sorted(commit_info_merge_contributer, key=lambda x: x['commit_time']), indent=4))
-
 
 
 # 得到每次commit源文件和配置文件修改的个数
@@ -128,6 +178,7 @@ def getJavaConfigNum(info_data_item):
     configNum = xml_count + config_count
     return javaNum,configNum
 
+
 # 将所有commit信息整合成只有构建的数值形式
 def commitDataIntoNum(filePath9,filePath10):
     info_data = openJsonFile(filePath9)
@@ -140,7 +191,17 @@ def commitDataIntoNum(filePath9,filePath10):
         if info_data_item["build_result"]:
             last_build_time =  int(re.search(p1, info_data_item["commit_time"]).group())
             break
-    mydic = { "additions_num": "0 additions","deletions_num": "0 deletions","changed_file_num": "0 changed files","commit_title_length":"0","commit_description_length":"0","java_num":"0","config_num":"0","commit_count":"0","last_build_result":"0","time_interval":"0" }
+    mydic = { "additions_num": "0 additions",
+              "deletions_num": "0 deletions",
+              "changed_file_num": "0 changed files",
+              "commit_title_length":"0",
+              "commit_description_length":"0",
+              "java_num":"0",
+              "config_num":"0",
+              "commit_count":"0",
+              "last_build_result":"0",
+              "time_interval":"0",
+              }
 
 
     for info_data_item in info_data:
@@ -181,6 +242,68 @@ def commitDataIntoNum(filePath9,filePath10):
             mydic = {"additions_num": "0 additions", "deletions_num": "0 deletions", "changed_file_num": "0 changed files","commit_title_length":"0","commit_description_length":"0","java_num":"0","config_num":"0","commit_count":"0","last_build_result":"0","time_interval":"0" }
 
     with open(filePath10, 'w') as json_file:
+        json_file.write(json.dumps(sorted(final_data, key=lambda x: x['commit_time']), indent=4))
+
+
+# filePath1 testresult filepath2 commitintomerge
+def build_relation_with_last_one(file_path1, file_path2, file_path3):
+    info_data = openJsonFile(file_path1)
+
+    final_data=[]
+    p1 = re.compile('\d+')
+    for i in range(1,len(info_data)):
+        dic={}
+
+        this_build=info_data[i]
+        this_build_time=int(re.search(p1, this_build["commit_time"]).group())
+
+        dic["commit_id"] = re.search(p1, this_build["commit_id"])
+        dic["commit_time"] = re.search(p1, this_build["commit_time"])
+
+        last_build=info_data[i-1]
+        last_build_time=int(re.search(p1, last_build["commit_time"]).group())
+
+        file_list={}
+        for commit_info in file_path2:
+            commit_time=int(re.search(p1, commit_info["commit_time"]).group())
+            if last_build_time < commit_time <= this_build_time:
+                for file in commit_info["changed_file"]:
+                    if file_list[file]:
+                        file_list[file].append(commit_info["author_name"])
+
+                    else:
+                        file_list[file] = []
+                        file_list[file].append(commit_info["author_name"])
+            else:
+                pass
+
+        people_list=[]
+        collision_file = 0
+        for filenum in file_list.values():
+            if len(filenum)>1:
+                collision_file += 1
+                for people in filenum:
+                    if people_list.index(people)==-1:
+                        people_list.append(people)
+                    else:
+                        pass
+
+        dic["collision_people"]=len(people_list)
+        dic["collision_file"]=collision_file
+
+        failure_time_interval=0
+        j=i
+        while j>=0:
+            if int(re.search(p1, info_data[j]["build_result"]).group())==0 :
+                failure_time_interval=this_build_time-int(re.search(p1, info_data[j]["commit_time"]).group())
+                break
+            else:
+                j = j-1
+                continue
+        dic["failure_time_interval"] = failure_time_interval
+
+        final_data.append(dic)
+    with open(file_path3, 'w') as json_file:
         json_file.write(json.dumps(sorted(final_data, key=lambda x: x['commit_time']), indent=4))
 
 
@@ -282,6 +405,7 @@ def predictData(filePath16,filePath17,filePath18):
 
 
 
+
 def dataProcess(filePath1,filePath2):
     filePath3 = '../data/commit_info_merge.json'
     filePath4 = '../data/contributer_info.json'
@@ -290,6 +414,7 @@ def dataProcess(filePath1,filePath2):
     filePath7 = '../data/result_project_success.json'
     filePath8 = '../data/commit_info_merge_success.json'
     filePath9 = '../data/final.json'
+    filePath10 = '../data/relation_with_last_one.json'
     # 将构建结果和链接  与  commit各项信息合并
     commits_info_merge(filePath1,filePath2,filePath3)
 
@@ -302,6 +427,9 @@ def dataProcess(filePath1,filePath2):
     # 将所有commit信息整合成只有构建的数值形式
     commitDataIntoNum(filePath5,filePath6)
 
+    # filePath1 testresult filepath2 commitintomerge
+    build_relation_with_last_one(filePath6,filePath3,filePath10)
+
     # 最近五次项目构建的成功率
     build_success_rate_five(filePath6,filePath7)
 
@@ -313,17 +441,18 @@ def dataProcess(filePath1,filePath2):
 
 
 if __name__ == '__main__':
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
-    filePath1 = sys.argv[1]
-    filePath2 = sys.argv[2]
-    print filePath1
-    print type(filePath1)
-    # filePath1 = "../data/commit_info.json"
-    # filePath2 = "../data/project_commit.json"
-    # print filePath2
-    # print type(filePath2)
-    dataProcess(filePath1,filePath2)
-    print "success"
-	
-	
+    # reload(sys)
+    # sys.setdefaultencoding('utf-8')
+    # filePath1 = sys.argv[1]
+    # filePath2 = sys.argv[2]
+    # print filePath1
+    # print type(filePath1)
+    # # filePath1 = "../data/commit_info.json"
+    # # filePath2 = "../data/project_commit.json"
+    # # print filePath2
+    # # print type(filePath2)
+    # dataProcess(filePath1,filePath2)
+    # print "success"
+    filePath1 = "../data/commit_info.json"
+    filePath2 = "../data/project_commit.json"
+    dataProcess(filePath1, filePath2)
