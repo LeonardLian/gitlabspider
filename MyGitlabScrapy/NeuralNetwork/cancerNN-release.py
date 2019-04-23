@@ -25,6 +25,7 @@ def finalDataChoose():
     return data_x,data_y
 
 
+
 #initialize parameters(w,b)
 def initialize_parameters(layer_dims):
 	"""
@@ -186,6 +187,7 @@ def update_parameters(parameters, grads, learning_rate):
 		parameters["W" + str(l + 1)] = parameters["W" + str(l + 1)] - learning_rate * grads["dW" + str(l+1)]
 		parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - learning_rate * grads["db" + str(l+1)]
 	return parameters
+
 
 def L_layer_model(X, Y, layer_dims, learning_rate, num_iterations):
 	"""
