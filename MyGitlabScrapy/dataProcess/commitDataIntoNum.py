@@ -445,6 +445,7 @@ def normal_distribution(file_path1):
     means = np.mean(file_path1)
     
 
+
 def dataProcess(filePath1, filePath2):
     filePath3 = '../data/commit_info_merge.json'
     filePath4 = '../data/contributer_info.json'

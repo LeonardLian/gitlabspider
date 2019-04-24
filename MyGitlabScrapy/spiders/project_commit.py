@@ -39,3 +39,5 @@ class MySpider(scrapy.Spider):
             else:
                 project_commit['build_result']= ""
             yield project_commit
+
+
