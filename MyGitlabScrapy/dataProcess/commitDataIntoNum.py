@@ -432,17 +432,17 @@ def predictData(filePath16, filePath17, filePath18):
         json_file.write(json.dumps(sorted(build_info_data, key=lambda x: x['commit_time']), indent=4))
 
 # file_path1 test_result
-def normal_distribution(file_path1):
-    build_info_data = openJsonFile(file_path1)
-
-    FtOfFailure = []
-    for i in range(0, len(build_info_data)):
-        if build_info_data[i]["build_result"]=="0":
-            distance=int(len(build_info_data)) - i
-            FtOfFailure.append(distance)
-        else:
-            pass
-    means = np.mean(file_path1)
+# def normal_distribution(file_path1):
+#     build_info_data = openJsonFile(file_path1)
+#
+#     FtOfFailure = []
+#     for i in range(0, len(build_info_data)):
+#         if build_info_data[i]["build_result"]=="0":
+#             distance=int(len(build_info_data)) - i
+#             FtOfFailure.append(distance)
+#         else:
+#             pass
+#     means = np.mean(file_path1)
     
 
 
