@@ -15,6 +15,9 @@ class ProjectItem(scrapy.Item):
     # 项目ID
     project_id = scrapy.Field()
 
+
+
+
     # 项目大小
     project_size = scrapy.Field()
 
