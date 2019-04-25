@@ -3,7 +3,7 @@
 神经网络模型处理乳腺癌数据
 把各部分分离出来，降低耦合度，使得结构更加清晰
 """
-
+from __future__ import division
 import numpy as np
 import re
 import matplotlib.pyplot as plt
@@ -11,19 +11,23 @@ import json
 import pandas as pd
 from sklearn.datasets import  load_breast_cancer
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+import math
 
-def finalDataChoose():
+
+def finalDataChoose(percent):
     file_info = open("../data/final.json", "rb")
     info_data = json.load(file_info)
+    length = int(math.floor(len(info_data)*percent*0.01))
 
     info_dataset = pd.DataFrame(info_data, columns=[ 'changed_code_lines', 'changed_file_num', 'java_num', 'config_num',  'commit_count',  'average_commit_filenum', 'length_all_description',"auther_commit_total","last_build_result","time_interval","success_last_five",'build_result'])
     info_dataset = info_dataset.convert_objects(convert_numeric=True)
     col = info_dataset.columns.values.tolist()
     col1 = col[2:-1]
-    data_x = np.array(info_dataset[col1])
-    data_y = info_dataset['build_result']
-    return data_x,data_y
 
+    data_x = np.array(info_dataset[col1])[0:length]
+    data_y = info_dataset['build_result'][0:length]
+    return data_x,data_y
 
 
 #initialize parameters(w,b)
@@ -188,7 +192,6 @@ def update_parameters(parameters, grads, learning_rate):
 		parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - learning_rate * grads["db" + str(l+1)]
 	return parameters
 
-
 def L_layer_model(X, Y, layer_dims, learning_rate, num_iterations):
 	"""
 	:param X:
@@ -241,24 +244,53 @@ def predict(X_test,y_test,parameters):
 		else:
 			Y_prediction[0, i] = 0
 	accuracy = 1- np.mean(np.abs(Y_prediction - y_test))
-	return accuracy,Y_prediction[0,m-1]
+	return accuracy,Y_prediction
 
 #DNN model
 def DNN(X_train, y_train, X_test, y_test, layer_dims, learning_rate= 0.001, num_iterations=30000):
 	parameters = L_layer_model(X_train, y_train, layer_dims, learning_rate, num_iterations)
-	accuracy = predict(X_test,y_test,parameters)
-	return accuracy
+	accuracy,Y_prediction = predict(X_test,y_test,parameters)
+	return accuracy,Y_prediction
 
 if __name__ == "__main__":
 	# X_data, y_data = load_breast_cancer(return_X_y=True)
-	X_data, y_data = finalDataChoose()
-	X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.9,random_state=28)
-	X_train = X_train.T
-	# y_train = y_train.reshape(y_train.shape[0], -1).T
-	y_train = y_train.values.reshape(y_train.shape[0], -1).T
-	X_test = X_test.T
-	# y_test = y_test.reshape(y_test.shape[0], -1).T
-	y_test = y_test.values.reshape(y_test.shape[0], -1).T
-	accuracy,lastPredict = DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
-	print(accuracy)
-        print(lastPredict)
+	TN=[]
+	FP=[]
+	FN=[]
+	TP=[]
+	Accuracy=[]
+	Recall=[]
+	Precision=[]
+	for percent in range(10,101):
+		print percent
+		X_data, y_data = finalDataChoose(percent)
+		X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
+		X_train = X_train.T
+		# y_train = y_train.reshape(y_train.shape[0], -1).T
+		y_train = y_train.values.reshape(y_train.shape[0], -1).T
+		X_test = X_test.T
+		# y_test = y_test.reshape(y_test.shape[0], -1).T
+		y_test = y_test.values.reshape(y_test.shape[0], -1).T
+		accuracy,Y_prediction= DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
+		cm = confusion_matrix(y_test[0], Y_prediction[0])
+		tn, fp, fn, tp = cm.ravel()
+		acc=(tp+tn)/(tp+tn+fp+fn)
+		pre=tp/(tp+fp)
+		rec=tp/(tp+fn)
+		TN.append(tn)
+		FP.append(fp)
+		FN.append(fn)
+		TP.append(tp)
+		Accuracy.append(acc)
+		Precision.append(pre)
+		Recall.append(rec)
+	outputfile = "outputfile.xls"
+	df = pd.DataFrame(columns=[])
+	df.insert(0, 'TN', TN)
+	df.insert(1, 'FP', FP)
+	df.insert(2, 'FN', FN)
+	df.insert(3, 'TP', TP)
+	df.insert(4, 'Accuracy', Accuracy)
+	df.insert(5, 'Precision', Precision)
+	df.insert(6, 'Recall', Recall)
+	df.to_excel(outputfile)
