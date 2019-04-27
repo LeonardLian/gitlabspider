@@ -11,6 +11,7 @@ import json
 import pandas as pd
 from sklearn.datasets import  load_breast_cancer
 from sklearn.model_selection import train_test_split
+import math
 
 def finalDataChoose():
     file_info = open("../data/final.json", "rb")
@@ -249,7 +250,13 @@ def DNN(X_train, y_train, X_test, y_test, layer_dims, learning_rate= 0.001, num_
 if __name__ == "__main__":
 	# X_data, y_data = load_breast_cancer(return_X_y=True)
 	X_data, y_data = finalDataChoose()
-	X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
+	# X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
+
+	X_train = X_data[0:int(math.floor(len(X_data) * 0.7))]
+	X_test = X_data[int(math.floor(len(X_data) * 0.7)):]
+	y_train = y_data[0:int(math.floor(len(X_data) * 0.7))]
+	y_test = y_data[int(math.floor(len(X_data) * 0.7)):]
+
 	X_train = X_train.T
 	# y_train = y_train.reshape(y_train.shape[0], -1).T
 	y_train = y_train.values.reshape(y_train.shape[0], -1).T

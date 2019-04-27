@@ -261,10 +261,25 @@ if __name__ == "__main__":
 	Accuracy=[]
 	Recall=[]
 	Precision=[]
+	F1_measure=[]
+	TN0 = []
+	FP0 = []
+	FN0 = []
+	TP0 = []
+	Accuracy0 = []
+	Recall0 = []
+	Precision0 = []
+	F1_measure0 = []
 	for percent in range(10,101):
 		print percent
 		X_data, y_data = finalDataChoose(percent)
-		X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
+		# X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
+
+		X_train = X_data[0:int(math.floor(len(X_data)*0.7))]
+		X_test = X_data[int(math.floor(len(X_data)*0.7)):]
+		y_train= y_data[0:int(math.floor(len(X_data)*0.7))]
+		y_test= y_data[int(math.floor(len(X_data)*0.7)):]
+
 		X_train = X_train.T
 		# y_train = y_train.reshape(y_train.shape[0], -1).T
 		y_train = y_train.values.reshape(y_train.shape[0], -1).T
@@ -277,6 +292,7 @@ if __name__ == "__main__":
 		acc=(tp+tn)/(tp+tn+fp+fn)
 		pre=tp/(tp+fp)
 		rec=tp/(tp+fn)
+		f1_messure=2*pre*rec/(pre+rec)
 		TN.append(tn)
 		FP.append(fp)
 		FN.append(fn)
@@ -284,6 +300,24 @@ if __name__ == "__main__":
 		Accuracy.append(acc)
 		Precision.append(pre)
 		Recall.append(rec)
+		F1_measure.append(f1_messure)
+
+		tp0=fp
+		fp0=tp
+		fn0=tn
+		tn0=fn
+		acc0 = (tp0 + tn0) / (tp0 + tn0 + fp0 + fn0)
+		pre0 = tp0 / (tp0 + fp0)
+		rec0 = tp0 / (tp0 + fn0)
+		f1_messure0 = 2 * pre0 * rec0 / (pre0 + rec0)
+		TN0.append(tn0)
+		FP0.append(fp0)
+		FN0.append(fn0)
+		TP0.append(tp0)
+		Accuracy0.append(acc0)
+		Precision0.append(pre0)
+		Recall0.append(rec0)
+		F1_measure0.append(f1_messure0)
 	outputfile = "outputfile.xls"
 	df = pd.DataFrame(columns=[])
 	df.insert(0, 'TN', TN)
@@ -293,4 +327,14 @@ if __name__ == "__main__":
 	df.insert(4, 'Accuracy', Accuracy)
 	df.insert(5, 'Precision', Precision)
 	df.insert(6, 'Recall', Recall)
+	df.insert(7, 'F1_measure', F1_measure)
+
+	df.insert(8, 'TN0', TN0)
+	df.insert(9, 'FP0', FP0)
+	df.insert(10, 'FN0', FN0)
+	df.insert(11, 'TP0', TP0)
+	df.insert(12, 'Accuracy0', Accuracy0)
+	df.insert(13, 'Precision0', Precision0)
+	df.insert(14, 'Recall0', Recall0)
+	df.insert(15, 'F1_measure0', F1_measure0)
 	df.to_excel(outputfile)
