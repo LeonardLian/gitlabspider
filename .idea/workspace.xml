@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45fdefc-6964-4d10-b09d-8bb3341c2872" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/gitlabweb.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/items.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/items.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/pipelines.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/pipelines.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/settings.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/spiders/startScrapy.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/spiders/startScrapy.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/outputfile.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/cancerNN-incremental.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/cancerNN-release.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/cancerNN.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,7 +35,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1556334248000" expanded="true" signature="82:400" ph="..." />
+                <marker date="1556334248000" expanded="true" signature="87:251" ph="..." />
+                <marker date="1556334248000" expanded="true" signature="413:431" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/sortix_sortix.json" />
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/tom79_mastalab.json" />
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/cunidev_gestures.json" />
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/dessalines_torrents.csv.json" />
@@ -123,6 +119,7 @@
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/bitfireAT_davx5-ose_commitInfo.json" />
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/fdroid_fdroiddata_commitInfo.json" />
         <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.log" />
+        <option value="$PROJECT_DIR$/MyGitlabScrapy/spiders/gitlab-org_gitlab-ce_commitInfo.json" />
       </list>
     </option>
   </component>
@@ -169,6 +166,12 @@
               <item name="gitlabspider" type="462c0819:PsiDirectoryNode" />
               <item name="MyGitlabScrapy" type="462c0819:PsiDirectoryNode" />
               <item name="dataProcess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gitlabspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gitlabspider" type="462c0819:PsiDirectoryNode" />
+              <item name="MyGitlabScrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556102621471</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commit">
+      <created>1556334229804</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1556334229804</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -755,7 +765,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1556334248000" expanded="true" signature="82:400" ph="..." />
+            <marker date="1556334248000" expanded="true" signature="87:251" ph="..." />
+            <marker date="1556334248000" expanded="true" signature="413:431" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -767,16 +781,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/gitlab-org_gitlab-ce_commitInfo.json">
+    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.log">
       <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="-224248">
+        <state relative-caret-position="-258733">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.log">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="-258733">
+    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/gitlab-org_gitlab-ce_commitInfo.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2766043">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-224248">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>

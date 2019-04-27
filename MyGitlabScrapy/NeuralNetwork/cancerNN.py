@@ -25,7 +25,6 @@ def finalDataChoose():
     return data_x,data_y
 
 
-
 #initialize parameters(w,b)
 def initialize_parameters(layer_dims):
 	"""
@@ -150,7 +149,6 @@ def backward_propagation(AL, Y, caches):
 	X -- input dataset, of shape (input size, number of examples)
 	Y -- true "label" vector (containing 0 if cat, 1 if non-cat)
 	caches -- caches output from forward_propagation(),(W,b,z,pre_A)
-
 	Returns:
 	gradients -- A dictionary with the gradients with respect to dW,db
 	"""
@@ -188,7 +186,6 @@ def update_parameters(parameters, grads, learning_rate):
 		parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - learning_rate * grads["db" + str(l+1)]
 	return parameters
 
-
 def L_layer_model(X, Y, layer_dims, learning_rate, num_iterations):
 	"""
 	:param X:
@@ -214,13 +211,13 @@ def L_layer_model(X, Y, layer_dims, learning_rate, num_iterations):
 		grads = backward_propagation(AL, Y, caches)
 		#update parameters
 		parameters = update_parameters(parameters, grads, learning_rate)
-	# print('length of cost')
-	# print(len(costs))
-	# plt.clf()
-	# plt.plot(costs)  # o-:圆形
-	# plt.xlabel("iterations(thousand)")  # 横坐标名字
-	# plt.ylabel("cost")  # 纵坐标名字
-	# plt.show()
+	print('length of cost')
+	print(len(costs))
+	plt.clf()
+	plt.plot(costs)  # o-:圆形
+	plt.xlabel("iterations(thousand)")  # 横坐标名字
+	plt.ylabel("cost")  # 纵坐标名字
+	plt.show()
 	return parameters
 
 #predict function
@@ -241,7 +238,7 @@ def predict(X_test,y_test,parameters):
 		else:
 			Y_prediction[0, i] = 0
 	accuracy = 1- np.mean(np.abs(Y_prediction - y_test))
-	return accuracy,Y_prediction[0,m-1]
+	return accuracy
 
 #DNN model
 def DNN(X_train, y_train, X_test, y_test, layer_dims, learning_rate= 0.001, num_iterations=30000):
@@ -252,13 +249,12 @@ def DNN(X_train, y_train, X_test, y_test, layer_dims, learning_rate= 0.001, num_
 if __name__ == "__main__":
 	# X_data, y_data = load_breast_cancer(return_X_y=True)
 	X_data, y_data = finalDataChoose()
-	X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.9,random_state=28)
+	X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
 	X_train = X_train.T
 	# y_train = y_train.reshape(y_train.shape[0], -1).T
 	y_train = y_train.values.reshape(y_train.shape[0], -1).T
 	X_test = X_test.T
 	# y_test = y_test.reshape(y_test.shape[0], -1).T
 	y_test = y_test.values.reshape(y_test.shape[0], -1).T
-	accuracy,lastPredict = DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
+	accuracy= DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
 	print(accuracy)
-        print(lastPredict)
