@@ -287,37 +287,41 @@ if __name__ == "__main__":
 		# y_test = y_test.reshape(y_test.shape[0], -1).T
 		y_test = y_test.values.reshape(y_test.shape[0], -1).T
 		accuracy,Y_prediction= DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
-		cm = confusion_matrix(y_test[0], Y_prediction[0])
-		tn, fp, fn, tp = cm.ravel()
-		acc=(tp+tn)/(tp+tn+fp+fn)
-		pre=tp/(tp+fp)
-		rec=tp/(tp+fn)
-		f1_messure=2*pre*rec/(pre+rec)
-		TN.append(tn)
-		FP.append(fp)
-		FN.append(fn)
-		TP.append(tp)
-		Accuracy.append(acc)
-		Precision.append(pre)
-		Recall.append(rec)
-		F1_measure.append(f1_messure)
+		if (0 in y_test[0]) or (0 in Y_prediction[0]):
+			cm = confusion_matrix(y_test[0], Y_prediction[0])
+			tn, fp, fn, tp = cm.ravel()
+			acc = (tp + tn) / (tp + tn + fp + fn)
+			pre = tp / (tp + fp)
+			rec = tp / (tp + fn)
+			f1_messure = 2 * pre * rec / (pre + rec)
+			TN.append(tn)
+			FP.append(fp)
+			FN.append(fn)
+			TP.append(tp)
+			Accuracy.append(acc)
+			Precision.append(pre)
+			Recall.append(rec)
+			F1_measure.append(f1_messure)
 
-		tp0=fp
-		fp0=tp
-		fn0=tn
-		tn0=fn
-		acc0 = (tp0 + tn0) / (tp0 + tn0 + fp0 + fn0)
-		pre0 = tp0 / (tp0 + fp0)
-		rec0 = tp0 / (tp0 + fn0)
-		f1_messure0 = 2 * pre0 * rec0 / (pre0 + rec0)
-		TN0.append(tn0)
-		FP0.append(fp0)
-		FN0.append(fn0)
-		TP0.append(tp0)
-		Accuracy0.append(acc0)
-		Precision0.append(pre0)
-		Recall0.append(rec0)
-		F1_measure0.append(f1_messure0)
+			tp0 = fp
+			fp0 = tp
+			fn0 = tn
+			tn0 = fn
+			acc0 = (tp0 + tn0) / (tp0 + tn0 + fp0 + fn0)
+			pre0 = tp0 / (tp0 + fp0)
+			rec0 = tp0 / (tp0 + fn0)
+			f1_messure0 = 2 * pre0 * rec0 / (pre0 + rec0)
+			TN0.append(tn0)
+			FP0.append(fp0)
+			FN0.append(fn0)
+			TP0.append(tp0)
+			Accuracy0.append(acc0)
+			Precision0.append(pre0)
+			Recall0.append(rec0)
+			F1_measure0.append(f1_messure0)
+		else:
+			print percent,"cannot compute"
+
 	outputfile = "outputfile.xls"
 	df = pd.DataFrame(columns=[])
 	df.insert(0, 'TN', TN)
