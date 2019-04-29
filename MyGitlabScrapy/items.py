@@ -33,6 +33,7 @@ class ProjectItem(scrapy.Item):
 
 
 class CommitInfoItem(scrapy.Item):
+    project_name = scrapy.Field()
     commit_id = scrapy.Field()
     commit_time = scrapy.Field()
     author_name = scrapy.Field()
