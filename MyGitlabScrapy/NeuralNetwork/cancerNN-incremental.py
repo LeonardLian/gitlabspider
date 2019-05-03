@@ -271,7 +271,7 @@ if __name__ == "__main__":
 	Precision0 = []
 	F1_measure0 = []
 	for percent in range(10,101):
-		print percent
+		percent = 100
 		X_data, y_data = finalDataChoose(percent)
 		# X_train, X_test,y_train,y_test = train_test_split(X_data, y_data, train_size=0.7,random_state=28)
 
@@ -286,7 +286,7 @@ if __name__ == "__main__":
 		X_test = X_test.T
 		# y_test = y_test.reshape(y_test.shape[0], -1).T
 		y_test = y_test.values.reshape(y_test.shape[0], -1).T
-		accuracy,Y_prediction= DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],10,5,1])
+		accuracy,Y_prediction= DNN(X_train,y_train,X_test,y_test,[X_train.shape[0],12,1])
 		if (0 in y_test[0]) or (0 in Y_prediction[0]):
 			cm = confusion_matrix(y_test[0], Y_prediction[0])
 			tn, fp, fn, tp = cm.ravel()
@@ -303,10 +303,10 @@ if __name__ == "__main__":
 			Recall.append(rec)
 			F1_measure.append(f1_messure)
 
-			tp0 = fp
-			fp0 = tp
-			fn0 = tn
-			tn0 = fn
+			tp0 = tn
+			fp0 = fn
+			fn0 = fp
+			tn0 = tp
 			acc0 = (tp0 + tn0) / (tp0 + tn0 + fp0 + fn0)
 			pre0 = tp0 / (tp0 + fp0)
 			rec0 = tp0 / (tp0 + fn0)
