@@ -2,91 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45fdefc-6964-4d10-b09d-8bb3341c2872" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/NebulousLabs_Sia.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/NebulousLabs_Sia_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/NickBusey_HomelabOS.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/NickBusey_HomelabOS_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/OpenMW_openmw.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/OpenMW_openmw_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/Remmina_Remmina.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/Remmina_Remmina_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/Rich-Harris_buble.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/Rich-Harris_buble_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/antora_antora.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/antora_antora_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/ase_ase.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/ase_ase_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/bitfireAT_davx5-ose.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/bitfireAT_davx5-ose_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/charts_gitlab.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/charts_gitlab_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/esr_open-adventure.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/esr_open-adventure_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroidclient.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroidclient_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroiddata.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroiddata_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroidserver.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/fdroid_fdroidserver_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/flectra-hq_flectra.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/flectra-hq_flectra_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-com_www-gitlab-com.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-com_www-gitlab-com_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitaly.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitaly_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-ce.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-ce_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-design.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-design_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-development-kit.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-development-kit_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-ee.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-ee_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-runner.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-runner_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-shell.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_gitlab-shell_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_omnibus-gitlab.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gitlab-org_omnibus-gitlab_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gnutls_gnutls.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gnutls_gnutls_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/higan_higan.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/higan_higan_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/inkscape_inkscape.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/inkscape_inkscape_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/mailman_mailman.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/mailman_mailman_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/mayan-edms_mayan-edms.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/mayan-edms_mayan-edms_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/meltano_meltano.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/meltano_meltano_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/muttmua_mutt.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/muttmua_mutt_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/openconnect_ocserv.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/openconnect_ocserv_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/painlessMesh_painlessMesh.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/painlessMesh_painlessMesh_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/pgjones_quart.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/pgjones_quart_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/postmarketOS_pmbootstrap.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/postmarketOS_pmbootstrap_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/postmill_Postmill.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/postmill_Postmill_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/prismosuite_prismo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/prismosuite_prismo_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/procps-ng_procps.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/procps-ng_procps_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/pycqa_flake8.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/pycqa_flake8_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/sequoia-pgp_sequoia.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/sequoia-pgp_sequoia_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/technomancy_bussard.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/technomancy_bussard_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/tezos_tezos.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/tezos_tezos_commitInfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/tortoisegit_tortoisegit.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MyGitlabScrapy/SpiderData/tortoisegit_tortoisegit_commitInfo.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/cancerNN.py" afterPath="$PROJECT_DIR$/MyGitlabScrapy/NeuralNetwork/cancerNN.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -113,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="commitDataIntoNum.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="commitDataIntoNum.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/dataProcess/commitDataIntoNum.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="519">
@@ -121,6 +37,16 @@
               <folding>
                 <element signature="e#16#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project_commit.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -249,6 +175,12 @@
               <item name="gitlabspider" type="b2602c69:ProjectViewProjectNode" />
               <item name="gitlabspider" type="462c0819:PsiDirectoryNode" />
               <item name="MyGitlabScrapy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gitlabspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gitlabspider" type="462c0819:PsiDirectoryNode" />
+              <item name="MyGitlabScrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="dataProcess" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -427,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557283797228</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="final_dataprocess">
+      <created>1557283944994</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557283944994</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -437,7 +376,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281027" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281027" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -502,13 +441,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/SpiderData/gnutls_gnutls.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/SpiderData/higan_higan.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -597,20 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="20" column="77" lean-forward="true" selection-start-line="20" selection-start-column="77" selection-end-line="20" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -829,6 +747,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/commit_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/dataProcess/commitDataIntoNum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
@@ -836,6 +770,14 @@
           <folding>
             <element signature="e#16#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyGitlabScrapy/spiders/project_commit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
