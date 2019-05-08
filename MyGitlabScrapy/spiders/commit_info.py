@@ -14,24 +14,26 @@ class MySpider(scrapy.Spider):
         # self.filePath = filePath
 
     def start_requests(self):
+
         start_urls = []
         # file = open(self.filePath, "rb")
 
         files = os.listdir(os.getcwd())
 
         for json_file in files:
-            if json_file.split(".")[1] == "json" and json_file.split(".")[0] != "project_commit":
+            if json_file.split(".")[-1] == "json" and json_file.split(".")[0] != "project_commit":
                 print json_file
                 file_info = open(json_file, "rb")
                 data = json.load(file_info)
                 for item in data:
-                    print item["commit_href"]
+                    # print item["commit_href"]
                     start_urls.append(item["commit_href"])
 
             else:
                 pass
 
         for url in start_urls:
+            print url
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
@@ -53,5 +55,5 @@ class MySpider(scrapy.Spider):
 
         commit_info['additions_num'] = response.xpath('//span[@class="diff-stats-additions-deletions-expanded"]/strong[@class="cgreen"]/text()').extract()
         commit_info['deletions_num'] = response.xpath('//span[@class="diff-stats-additions-deletions-expanded"]/strong[@class="cred"]/text()').extract()
-        print commit_info
+        # print commit_info
         yield commit_info
